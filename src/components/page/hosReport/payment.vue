@@ -287,12 +287,23 @@ export default {
       let f = date.getMinutes();
       let g = date.getSeconds();
       console.log(d);
-      let time = y + "-" + m + "-" + d + " " + e + ":" + f + ":" + g;
-      let stime = y + "-" + m;
-      let endtime = y + "-" + x + "-" + b + " " + e + ":" + f + ":" + g;
-      this.startTime = time;
-      this.dayTime = stime;
-      this.endTime = endtime;
+        if (x == 1) {
+            let time = y + "-" + 12 + "-" + d + " " + e + ":" + f + ":" + g;
+            let stime = y + "-" + 12;
+            let endtime = y + "-" + x + "-" + b + " " + e + ":" + f + ":" + g;
+            this.startTime = time;
+            this.dayTime = stime;
+            this.endTime = endtime;
+        }
+        else {
+            let time = y + "-" + m + "-" + d + " " + e + ":" + f + ":" + g;
+            let stime = y + "-" + m;
+            let endtime = y + "-" + x + "-" + b + " " + e + ":" + f + ":" + g;
+            this.startTime = time;
+            this.dayTime = stime;
+            this.endTime = endtime;
+        }
+    
     }
   },
   components: {

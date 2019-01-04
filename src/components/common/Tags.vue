@@ -42,6 +42,7 @@ export default {
         ? this.tagsList[index]
         : this.tagsList[index - 1];
       if (item) {
+        console.log(item)
         delItem.path === this.$route.fullPath && this.$router.push(item.path);
       } else if (this.limit == "1") {
         this.$router.push("/home");
@@ -67,6 +68,7 @@ export default {
     },
     // 设置标签
     setTags(route) {
+      console.log(route)
       const isExist = this.tagsList.some(item => {
         return item.path === route.fullPath;
       });
@@ -112,6 +114,7 @@ export default {
   background: #fff;
   padding-right: 120px;
   box-shadow: 0 5px 10px #ddd;
+  z-index:999;
 }
 
 .tags ul {

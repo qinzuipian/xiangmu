@@ -1529,6 +1529,7 @@ export default {
             // this.viewbotList = res.data.data.rstMsgFeeList;
             this.dateList = res.data.data.datelist;
             this.viewbotList = res.data.data.listvo;
+       
             // this.isdateList = res.data.data.listvo.list;
             // this.isdateList = this.dateList;
             console.log(this.viewbotList);

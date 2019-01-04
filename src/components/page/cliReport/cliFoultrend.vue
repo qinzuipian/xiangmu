@@ -1187,6 +1187,8 @@ export default {
   /* width: calc(100%-20px); */
   width: 100%;
   text-align: left;
+  height:100%;
+  overflow-y:scroll;
   /* padding-left: 20px; */
 }
 .right-ctn-title span {

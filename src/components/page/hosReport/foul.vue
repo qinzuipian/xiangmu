@@ -75,7 +75,7 @@
             <el-table
             :data="foulData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
             :header-cell-style="rowClass"
-            height="464"
+            height="580"
             border
             style="width: 100%">
               <el-table-column

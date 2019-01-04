@@ -216,7 +216,7 @@ export default {
           }
           
         } else {
-          this.$message.error("请检查网络！");
+          this.$message.error(res.data.msg);
         }
       });
     },

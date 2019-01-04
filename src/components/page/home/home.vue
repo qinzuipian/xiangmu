@@ -2,7 +2,7 @@
     <div>
         <div class="main">
             <span>欢迎！系统管理员</span>
-            <el-select v-model="fangshi" @change="fangshiChange" size="mini" placeholder="请选择" style="float:right;margin-right:10%;">
+            <el-select v-model="fangshi" @change="fangshiChange" size="mini" placeholder="请选择" style="float:right;margin-right:1%;">
                 <el-option v-for="item in fangshiOption" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
             </el-select>
@@ -822,12 +822,17 @@ export default {
 <style scoped>
 .main {
   width: 100%;
-  height: 100%;
+  height: 116%;
+  overflow-y:scroll;
   position: absolute;
   left: 0;
   top: 0;
   background-color: #edf4f5;
   text-align: left;
+  margin-top:30px;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .main span {
   margin-left: 10px;
@@ -870,7 +875,11 @@ export default {
 .top .topBom,
 .middle .middleTop,
 .middle .middleCen,
-.middle .middleBom {
+.middle .middleBom,
+.justmiddle .justBom,
+.bottom .botTop,
+.bottom .botCen,
+.bottom .botBom {
   background-color: #fff;
 }
 .top .topTop div,

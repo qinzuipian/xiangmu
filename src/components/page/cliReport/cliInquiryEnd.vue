@@ -26,7 +26,7 @@
                 :data="queryData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                 :header-cell-style="rowClass"
                 border
-                height="480"
+                height="580"
                 style="width: 100%">
                 <el-table-column
                 prop="hospitalName"

@@ -39,7 +39,7 @@
                 <el-table
                     :data="medicalData.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                     border
-                    height="500"
+                    height="550"
                     style="width: 100%">
                     <el-table-column
                     prop="itemName"

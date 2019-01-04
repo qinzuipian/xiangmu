@@ -199,11 +199,11 @@ export default {
             {
               index: "cliComprehen",
               title: "综合分析"
-            },
+            }/* ,
             {
               index: "clinicMedical",
               title: "病案科室"
-            }
+            } */
           ]
         },
         //参合信息

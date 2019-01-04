@@ -129,12 +129,12 @@ export default new Router({
                     path: '/cliComprehen',
                     component: resolve => require(['../components/page/cliReport/cliComprehen.vue'], resolve),
                     meta: { title: '综合分析' }
-                },
-                {
+                } ,
+                /*{
                     path: '/clinicMedical',
                     component: resolve => require(['../components/page/cliReport/clinicMedical.vue'], resolve),
                     meta: { title: '病案科室' }
-                },
+                }, */
                 //参合信息
                 {
                     path: '/person',

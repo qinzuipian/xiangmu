@@ -329,9 +329,9 @@
                             </el-input>
                         </div>
                         <br>
-                        <el-button @click="submit(1)" style="margin-top: 20px;" type="success" size="mini">确认
+                        <el-button @click="submit(1)" style="margin-top: 10px;" type="success" size="mini">确认
                         </el-button>
-                        <el-button @click="reset" style="margin-top: 20px;margin-left: 80px;" type="danger" size="mini">
+                        <el-button @click="reset" style="margin-top: 10px;margin-left: 80px;" type="danger" size="mini">
                             重置
                         </el-button>
                     </div>
