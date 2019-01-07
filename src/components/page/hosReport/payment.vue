@@ -288,7 +288,7 @@ export default {
       let g = date.getSeconds();
       console.log(d);
         if (x == 1) {
-            let time = y + "-" + 12 + "-" + d + " " + e + ":" + f + ":" + g;
+            let time = y-1 + "-" + 12 + "-" + d + " " + e + ":" + f + ":" + g;
             let stime = y + "-" + 12;
             let endtime = y + "-" + x + "-" + b + " " + e + ":" + f + ":" + g;
             this.startTime = time;

@@ -1825,7 +1825,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .leftContent {

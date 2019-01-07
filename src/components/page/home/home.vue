@@ -517,12 +517,12 @@ export default {
             legend: {
               data: ["存疑病例数", "存疑金额"]
             },
-            /*  grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        }, */
+             grid: {
+              left: "3%",
+              right: "4%",
+              bottom: "3%",
+              containLabel: true
+            },
             /*  toolbox: {
           feature: {
             saveAsImage: {}

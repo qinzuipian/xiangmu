@@ -1,0 +1,18 @@
+.el-table td, .el-table th {
+    padding: 8px 0;
+  }
+.el-table {
+    font-size: 13px;
+    text-align: left;
+  }
+  .el-dialog__body {
+    padding: 4px 20px;
+  }
+  .el-autocomplete-suggestion li {
+    padding: 0 8px;
+    font-size: 12px;
+    line-height: 28px;
+  }
+  .el-dialog__header {
+    text-align: center;
+  }

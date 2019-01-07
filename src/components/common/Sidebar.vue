@@ -69,7 +69,7 @@ export default {
       limit: "",
       items: [
         {
-          icon: "el-icon-lx-home",
+          icon: "el-icon-d-caret",
           index: "home",
           title: "首页"
         },
@@ -157,7 +157,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-service",
+          icon: "el-icon-service",
           index: "4",
           title: "门诊系统",
           subs: [
@@ -208,7 +208,7 @@ export default {
         },
         //参合信息
         {
-          icon: "el-icon-lx-profile",
+          icon: "el-icon-news",
           index: "7",
           title: "参合信息",
           subs: [
@@ -224,7 +224,7 @@ export default {
         },
         //基金筹资
         {
-          icon: "el-icon-lx-redpacket",
+          icon: "el-icon-goods",
           index: "8",
           title: "基金筹资",
           subs: [
@@ -367,7 +367,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-service",
+          icon: "el-icon-service",
           index: "4",
           title: "门诊结算",
           subs: [
