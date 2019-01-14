@@ -69,12 +69,14 @@ export default {
       limit: "",
       items: [
         {
-          icon: "el-icon-d-caret",
+          icon: "fa fa-home fa-lg",
+          // icon: "el-icon-d-caret",
           index: "home",
           title: "首页"
         },
         {
-          icon: "el-icon-share",
+          icon: "fa fa-hospital-o fa-lg",
+          // icon: "el-icon-share",
           index: "3",
           title: "住院系统",
           subs: [
@@ -115,7 +117,8 @@ export default {
           ]
         },
         {
-          icon: "el-icon-document",
+          icon: "fa fa-bar-chart fa-lg",
+          // icon: "el-icon-document",
           index: "icon",
           title: "住院报表",
           subs: [
@@ -146,7 +149,8 @@ export default {
           ]
         },
         {
-          icon: "el-icon-edit-outline",
+          icon: "fa fa-database fa-lg",
+          // icon: "el-icon-edit-outline",
           index: "6",
           title: "数据统计",
           subs: [
@@ -157,7 +161,8 @@ export default {
           ]
         },
         {
-          icon: "el-icon-service",
+          icon: "fa fa-stethoscope fa-lg",
+          // icon: "el-icon-service",
           index: "4",
           title: "门诊系统",
           subs: [
@@ -180,7 +185,8 @@ export default {
           ]
         },
         {
-          icon: "el-icon-tickets",
+          icon: "fa fa-area-chart fa-lg",
+          // icon: "el-icon-tickets",
           index: "5",
           title: "门诊报表",
           subs: [
@@ -208,7 +214,8 @@ export default {
         },
         //参合信息
         {
-          icon: "el-icon-news",
+          icon: "fa fa-user-circle-o fa-lg",
+          // icon: "el-icon-news",
           index: "7",
           title: "参合信息",
           subs: [
@@ -224,7 +231,8 @@ export default {
         },
         //基金筹资
         {
-          icon: "el-icon-goods",
+          icon: "fa fa-yen fa-lg",
+          // icon: "el-icon-goods",
           index: "8",
           title: "基金筹资",
           subs: [
@@ -236,7 +244,8 @@ export default {
         },
         //按地区补偿
         {
-          icon: "el-icon-location-outline",
+          icon: "fa fa-location-arrow fa-lg",
+          // icon: "el-icon-location-outline",
           index: "9",
           title: "地区补偿情况",
           subs: [
@@ -256,7 +265,8 @@ export default {
         },
         //病种统计
         {
-          icon: "el-icon-edit",
+          icon: "fa fa-medkit fa-lg",
+          // icon: "el-icon-edit",
           index: "10",
           title: "病种统计",
           subs: [
@@ -268,7 +278,8 @@ export default {
         },
         //按住院补偿
         {
-          icon: "el-icon-star-off",
+          icon: "fa fa-ambulance fa-lg",
+          // icon: "el-icon-star-off",
           index: "11",
           title: "医院补偿情况",
           subs: [
@@ -288,7 +299,8 @@ export default {
         },
         //按年度补偿
         {
-          icon: "el-icon-date",
+          icon: "fa fa-calendar fa-lg",
+          // icon: "el-icon-date",
           index: "12",
           title: "年度补偿情况",
           subs: [
@@ -308,7 +320,8 @@ export default {
         },
         //按项目补偿
         {
-          icon: "el-icon-view",
+          icon: "fa fa-folder-open fa-lg",
+          // icon: "el-icon-view",
           index: "13",
           title: "项目补偿情况",
           subs: [
@@ -330,7 +343,8 @@ export default {
       menuShow:0,
       hositems: [
         {
-          icon: "el-icon-share",
+          icon: "fa fa-hospital-o fa-lg",
+          // icon: "el-icon-share",
           index: "3",
           title: "住院结算",
           subs: [
@@ -344,8 +358,9 @@ export default {
             }
           ]
         },
-         {
-          icon: "el-icon-search",
+        {
+          icon: "fa fa-user-md fa-lg",
+          // icon: "el-icon-search",
           index: "2",
           title: "医学知识库",
           subs: [
@@ -356,7 +371,8 @@ export default {
           ]
         },  
         {
-          icon: "el-icon-edit-outline",
+          icon: "fa fa-database fa-lg",
+          // icon: "el-icon-edit-outline",
           index: "6",
           title: "基础数据分析",
           subs: [
@@ -367,7 +383,8 @@ export default {
           ]
         },
         {
-          icon: "el-icon-service",
+          icon: "fa fa-stethoscope fa-lg",
+          // icon: "el-icon-service",
           index: "4",
           title: "门诊结算",
           subs: [
@@ -380,7 +397,8 @@ export default {
         },
         //按地区补偿
         {
-          icon: "el-icon-location-outline",
+          icon: "fa fa-location-arrow fa-lg",
+          // icon: "el-icon-location-outline",
           index: "9",
           title: "地区补偿情况",
           subs: [
@@ -400,7 +418,8 @@ export default {
         },
         //病种统计
         {
-          icon: "el-icon-edit",
+          icon: "fa fa-medkit fa-lg",
+          // icon: "el-icon-edit",
           index: "10",
           title: "病种统计",
           subs: [
@@ -412,7 +431,8 @@ export default {
         },
         //按住院补偿
         {
-          icon: "el-icon-star-off",
+          icon: "fa fa-ambulance fa-lg",
+          // icon: "el-icon-star-off",
           index: "11",
           title: "医院补偿情况",
           subs: [
@@ -432,7 +452,8 @@ export default {
         },
         //按年度补偿
         {
-          icon: "el-icon-date",
+          icon: "fa fa-calendar fa-lg",
+          // icon: "el-icon-date",
           index: "12",
           title: "年度补偿情况",
           subs: [
@@ -452,7 +473,8 @@ export default {
         },
         //按项目补偿
         {
-          icon: "el-icon-view",
+          icon: "fa fa-folder-open fa-lg",
+          // icon: "el-icon-view",
           index: "13",
           title: "项目补偿情况",
           subs: [
@@ -520,7 +542,8 @@ export default {
   left: 0;
   top: 70px;
   bottom: 0;
-  height: 100%;
+  height: 146%;
+  /* height: 100%; */
   /* overflow-y: scroll; */
 }
 .sidebar::-webkit-scrollbar {

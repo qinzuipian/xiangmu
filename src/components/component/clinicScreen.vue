@@ -108,9 +108,10 @@
                   :fetch-suggestions="examinequery"
                   placeholder="请输入内容"
                 ></el-autocomplete> -->
-                     <el-input size="mini" v-model="examineText" placeholder="请输入内容" @focus="examineFocus" @blur="examineBlur"></el-input>  
+                     <el-input size="mini" v-model="examineText" placeholder="请输入内容" @focus="examineFocus" @blur="examineBlur" ></el-input>  
+                      <!-- @blur="examineBlur" -->
                       <ul class="upText" v-show="upShow">
-                          <li class="Liactive" v-for="(it, index) in examineList" :key="index" @mousedown="Liactive">{{it}}</li>
+                          <li class="Liactive" v-for="(it, index) in examineList" :key="index" @click="Liactive">{{it}}</li>
                       </ul>
 
                 <div class="border"></div>
@@ -551,12 +552,15 @@ export default {
         });
     },
     examineBlur() {
-      this.upShow = false;
+       let _this = this;
+       setTimeout(function() {
+          _this.upShow = false;
+       },200);
     },
     Liactive(val) {
       // console.log(val.path[0].innerHTML);
-      this.examineText = val.path[0].innerHTML;
-      // this.upShow = false;
+      this.examineText = val.target.childNodes[0].data;
+      this.upShow = false;
     },
     handleSelect(item) {
       console.log(item);

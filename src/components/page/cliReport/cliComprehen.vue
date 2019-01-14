@@ -532,11 +532,11 @@ export default {
     
     }, */
     cityChange(val) {
-      console.log(val.path[0].innerHTML);
-      sessionStorage.setItem("city", val.path[0].innerHTML);
+      // console.log(val.path[0].innerHTML);
+      sessionStorage.setItem("city", val.target.childNodes[0].data);
       let i;
       this.cityList.find(item => {
-        if (item.d20120 == val.path[0].innerHTML) {
+        if (item.d20120 == val.target.childNodes[0].data) {
           console.log(item.d20102);
           i = parseInt(item.d20102);
         }
@@ -565,10 +565,10 @@ export default {
     },
     roundChange(val) {
       // console.log(val.path[0].innerHTML);
-      sessionStorage.setItem("round", val.path[0].innerHTML);
+      sessionStorage.setItem("round", val.target.childNodes[0].data);
       let i;
       this.roundList.find(item => {
-        if (item.d20120 == val.path[0].innerHTML) {
+        if (item.d20120 == val.target.childNodes[0].data) {
           console.log(item.d20102);
           i = parseInt(item.d20102);
         }
@@ -596,11 +596,11 @@ export default {
         });
     },
     townChange(val) {
-      console.log(val.path[0].innerHTML);
-      sessionStorage.setItem("town", val.path[0].innerHTML);
+      // console.log(val.path[0].innerHTML);
+      sessionStorage.setItem("town", val.target.childNodes[0].data);
       let i;
       this.townList.find(item => {
-        if (item.d20120 == val.path[0].innerHTML) {
+        if (item.d20120 == val.target.childNodes[0].data) {
           console.log(item.d20102);
           i = parseInt(item.d20102);
         }
@@ -639,11 +639,11 @@ export default {
         });
     },
     villageChange(val) {
-      console.log(val.path[0].innerHTML);
-      sessionStorage.setItem("village", val.path[0].innerHTML);
+      // console.log(val.path[0].innerHTML);
+      sessionStorage.setItem("village", val.target.childNodes[0].data);
       let i;
       this.villageList.find(item => {
-        if (item.d20120 == val.path[0].innerHTML) {
+        if (item.d20120 == val.target.childNodes[0].data) {
           console.log(item.d20102);
           i = parseInt(item.d20102);
         }
@@ -684,8 +684,8 @@ export default {
         });
     },
     smallChange(val) {
-      console.log(val.path[0].innerHTML);
-      sessionStorage.setItem("small", val.path[0].innerHTML);
+      // console.log(val.path[0].innerHTML);
+      sessionStorage.setItem("small", val.target.childNodes[0].data);
       let chengshi =
         sessionStorage.getItem("round") +
         sessionStorage.getItem("town") +

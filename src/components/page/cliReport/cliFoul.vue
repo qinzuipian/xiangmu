@@ -4,8 +4,9 @@
             <span>规则名：</span>
             <el-input style="width: 240px; height: 30px;" v-model="rule" @focus="ruleFocus" @blur="ruleBlur" size="mini"
                                       placeholder="请输入内容"></el-input>
+             <!-- @blur="ruleBlur" -->
             <ul class="upText" v-show="upShow">
-              <li class="Liactive" v-for="(it, index) in ruleList" :key="index" @mousedown="Liactive">{{it}}</li>
+              <li class="Liactive" v-for="(it, index) in ruleList" :key="index" @click="Liactive">{{it}}</li>
             </ul>
             <span>违规等级：</span>
             <el-select v-model="illegal" size="mini" placeholder="请选择">
@@ -278,12 +279,15 @@ export default {
         });
     },
     ruleBlur() {
-      this.upShow = false;
+       let _this = this;
+       setTimeout(function() {
+          _this.upShow = false;
+       },200);
     },
     Liactive(val) {
       // console.log(val.path[0].innerHTML);
-      this.rule = val.path[0].innerHTML;
-      // this.upShow = false;
+      this.rule = val.target.childNodes[0].data;
+      this.upShow = false;
     },
     //医院编码与医疗机构的选择
     queryHosSearch(queryString, callback) {

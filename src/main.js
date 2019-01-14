@@ -20,6 +20,7 @@ import '../static/UE/ueditor.all.js'
 import '../static/UE/lang/zh-cn/zh-cn.js'
 import '../static/UE/ueditor.parse.min.js'
 import "../static/css/static.css";
+import 'font-awesome/css/font-awesome.css';
 
 Vue.use(ElementUI, { size: 'small' });
 // Vue.prototype.$axios = axios;

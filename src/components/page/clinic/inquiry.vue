@@ -169,8 +169,8 @@
                                 <span>年龄：{{viewTopList.age}}</span>
                                 <span> 诊断：{{viewTopList.diagonseName}}</span>
                                 <span>总费用：{{viewTopList.totalFee}}</span>
-                                <span>处方日期：{{viewTopList.presDateTime | formatDate}}</span>
-                                <span>结算日期：{{viewTopList.balDate | formatDate}}</span>
+                                <span>处方日期：{{presDateTime | formatDate}}</span>
+                                <span>结算日期：{{balDate | formatDate}}</span>
                             </div>
                             <span class="special">异常信息：<i>■</i></span>
                         </div>
@@ -201,8 +201,9 @@
                             </el-select>
                             <span style="margin-left: 40px;">项目名称:</span>
                             <el-input style="width: 190px; height: 30px;" v-model="itemSearch" @focus="itemFocus" @blur="itemBlur" size="mini" placeholder="请输入内容"></el-input>
+                             <!-- @blur="itemBlur" -->
                               <ul class="upText" v-show="upShow">
-                                  <li class="Liactive" v-for="(it, index) in itemListAll" :key="index" @mousedown="Liactive">{{it}}</li>
+                                  <li class="Liactive" v-for="(it, index) in itemListAll" :key="index" @click="Liactive">{{it}}</li>
                               </ul>
                             <el-button size="mini"  style="margin-left: 40px;" @click="searchTable">查询</el-button>
                             <el-button size="mini"  type="primary"  v-show="btnshow" @click="plusTable">合并列表</el-button>
@@ -507,7 +508,9 @@ export default {
       isSearch: false,
       piliangIdList: [],
       usercode: "",
-      username: ""
+      username: "",
+      presDateTime: "",
+      balDate: ""
     };
   },
   watch: {
@@ -774,6 +777,9 @@ export default {
             this.viewTopList = res.data.bizDatOrder[0];
             // this.viewTopList.totalFee.toFixed(2)
 
+             this.presDateTime = this.viewTopList.presDateTime.replace(/-/g,'/');
+            this.balDate = this.viewTopList.balDate.replace(/-/g,'/');
+
             // console.log(this.viewTopList);
           } else {
             this.$message.error(res.data.msg);
@@ -890,11 +896,14 @@ export default {
         });
     },
     itemBlur() {
-      this.upShow = false;
+     let _this = this;
+       setTimeout(function() {
+          _this.upShow = false;
+       },200);
     },
     Liactive(val) {
-      console.log(val.path[0].innerHTML);
-      this.itemSearch = val.path[0].innerHTML;
+      // console.log(val.path[0].innerHTML);
+      this.itemSearch = val.target.childNodes[0].data;
       this.upShow = false;
     },
     searchTable() {
@@ -1550,7 +1559,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .leftContent {

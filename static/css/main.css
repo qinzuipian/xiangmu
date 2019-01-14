@@ -38,20 +38,34 @@ a {
     -webkit-transition: left .3s ease-in-out;
     transition: left .3s ease-in-out;
     /* background: #f0f0f0; */
+
+    /* -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto; */
 }
 
-.content {
+/* .content {
     width: auto;
     height: 123%;
     padding: 0;
     margin: 0;
-    /* overflow-x: hidden; */
     overflow-y: scroll;
     box-sizing: border-box;
+
+    -ms-overflow-style: none;
+    
 }
 .content::-webkit-scrollbar {
   display: none;
-}
+} */
+
 
 .content-collapse {
     left: 65px;

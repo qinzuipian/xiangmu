@@ -108,8 +108,8 @@
                                 <span>年龄：{{viewTopList.age}}</span>
                                 <span> 诊断：{{viewTopList.diagonseName}}</span>
                                 <span>总费用：{{viewTopList.totalFee}}</span>
-                                <span>入院时间：{{viewTopList.inDate | formatDate}}</span>
-                                <span>出院时间：{{viewTopList.outDate | formatDate}}</span>
+                                <span>入院时间：{{inDate | formatDate}}</span>
+                                <span>出院时间：{{outDate | formatDate}}</span>
                             </div>
                             <span class="special">异常信息：<i>■</i></span>
                         </div>
@@ -153,8 +153,9 @@
                             </el-select>
                             <span style="margin-left: 40px;">项目名称:</span>
                             <el-input style="width: 190px; height: 30px;" v-model="itemSearch" @focus="itemFocus" @blur="itemBlur" size="mini" placeholder="请输入内容"></el-input>
+                             <!-- @blur="itemBlur" -->
                               <ul class="upText" v-show="upShow">
-                                  <li class="Liactive" v-for="(it, index) in itemListAll" :key="index" @mousedown="Liactive">{{it}}</li>
+                                  <li class="Liactive" v-for="(it, index) in itemListAll" :key="index" @click="Liactive">{{it}}</li>
                               </ul>
                             <el-button size="mini"  style="margin-left: 40px;" @click="searchTable">查询</el-button>
                             <el-button size="mini"  type="primary"  v-show="btnshow" @click="plusTable">合并列表</el-button>
@@ -328,7 +329,7 @@
                             <el-input style="width: 80%; margin-right: 5%;" type="textarea" autosize placeholder="请输入备注内容" v-model="beizhu">
                             </el-input>
                         </div>
-                        <br>
+                        <!-- <br> -->
                         <el-button @click="submit(1)" style="margin-top: 10px;" type="success" size="mini">确认
                         </el-button>
                         <el-button @click="reset" style="margin-top: 10px;margin-left: 80px;" type="danger" size="mini">
@@ -339,7 +340,7 @@
                 </div>
                 <div class="bottom-right" v-show="tashow">
                      <!-- <el-button type="success" size="mini" class="btn" @click="btnAdd">添加</el-button> -->
-                    <el-table :data="itemMsg" height="250" border @cell-click="showDrug" :cell-style="showStyle" style="width: 100%"> <!-- @row-contextmenu="showDetail"-->
+                    <el-table :data="itemMsg" height="250" border @cell-click="showDrug" @row-click="showRowdrug" :cell-style="showStyle" style="width: 100%"> <!-- @row-contextmenu="showDetail"-->
                         <el-table-column type="index" height="100" show-overflow-tooltip :index="indexMethod">
                         </el-table-column>
                         <el-table-column prop="itemName" height="100" show-overflow-tooltip  width="96" label="项目名称">
@@ -516,9 +517,11 @@ export default {
 
       factorShow: false,
       handShow: true,
-      remarkShow: true
+      remarkShow: true,
       // 审核调用回复框
       // userType: 1
+      inDate:"",
+      outDate:"",
     };
   },
 
@@ -565,11 +568,15 @@ export default {
       }
     },
     formatDate: function(val) {
+     /*  var time = val.replace(/-/g,'/');
+      console.log(time) */
+      // console.log(val)
       var value = new Date(val);
       var year = value.getFullYear();
       var month = value.getMonth() + 1;
       var day = value.getDate();
       return year + "-" + month + "-" + day;
+      // return formatDate(value, 'yyyy-MM-dd')
     }
   },
   methods: {
@@ -1480,6 +1487,10 @@ export default {
     hiddenadd() {
       this.addVisible = false;
     },
+    //右下角table栏的行点击事件
+    showRowdrug() {
+      this.leftBck = 1;
+    },
 
     // 右下角table栏的弹出框药品说明书的显示与隐藏
     showDrug(row, column) {
@@ -1828,12 +1839,23 @@ export default {
         });
     },
     itemBlur() {
-      this.upShow = false;
+      let _this = this;
+       setTimeout(function() {
+          _this.upShow = false;
+       },200);
     },
     Liactive(val) {
-      console.log(val.path[0].innerHTML);
-      this.itemSearch = val.path[0].innerHTML;
+      console.log(val);
+      console.log(val.target.childNodes[0].data);
+      this.itemSearch = val.target.childNodes[0].data;
+      console.log(this.itemSearch)
       this.upShow = false;
+    /*   if(val==val.path[0].innerHTML) {
+        this.itemSearch = val.path[0].innerHTML;
+      } else if(val==val.target.childNodes.innerHTML) {
+        this.itemSearch = val.target.childNodes.innerHTML;
+      } */
+    
     },
     searchTable() {
       if (this.hebingShow == true) {
@@ -1979,8 +2001,10 @@ export default {
           if (res.data.code == 0) {
             this.viewTopList = res.data.bizDatOrder[0];
             // this.viewTopList.totalFee.toFixed(2)
-
-            // console.log(this.viewTopList);
+           this.inDate = this.viewTopList.inDate.replace(/-/g,'/');
+           this.outDate = this.viewTopList.outDate.replace(/-/g,'/');
+            // console.log(this.viewTopList.inDate.replace(/-/g,'/'));
+            
           } else {
             this.$message.error(res.data.msg);
           }
@@ -2023,6 +2047,7 @@ export default {
     // 明细视图列表查询
     viewList() {
       this.isData = [];
+      this.dateList = [];
       axios({
         method: "post",
         url:
@@ -2035,7 +2060,14 @@ export default {
         .then(res => {
           if (res.data.code == 0) {
             // this.viewbotList = res.data.data.rstMsgFeeList;
-            this.dateList = res.data.data.datelist;
+            // this.dateList = res.data.data.datelist;
+            var datelist = res.data.data.datelist;
+            for(var i=0;i<datelist.length;i++) {
+              var d = datelist[i].substring(0,2)+"-"+datelist[i].substring(2,4);
+              // console.log(d);
+              this.dateList[i] = d;
+            }
+            // console.log(this.dateList);
             this.viewbotList = res.data.data.listvo;
             // this.isdateList = res.data.data.listvo.list;
             // this.isdateList = this.dateList;
@@ -2168,9 +2200,11 @@ export default {
 <style scoped>
 .content {
   width: 100%;
+  /* height: 123%; */
   display: flex;
   justify-content: space-around;
-  /* overflow: hidden; */
+  overflow: hidden;
+  /* -ms-overflow-style: none; */
 }
 
 .leftContent {
@@ -2325,10 +2359,10 @@ export default {
   top: 4px;
   left: 16%;
 }
-.upText {
+.right-ctn-title .upText {
   position: absolute;
   background: #fff;
-  left: 36%;
+  left: 34%;
   top: 72%;
   z-index: 999;
   width: 196px;
@@ -2343,7 +2377,7 @@ export default {
 /* ::-webkit-scrollbar {
   display: none;
 } */
-.upText li {
+.right-ctn-title .upText li {
   font-size: 12px;
   margin-bottom: 2px;
   color: #606266;

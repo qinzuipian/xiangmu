@@ -6,9 +6,10 @@
                 <div class="selectype">
                   
                     <span>警示类型：</span>
-					          <el-input size="mini" style="width:140px;" v-model="warnType" placeholder="请输入内容" @focus="warnTypeFocus" @blur="warnTypeBlur"></el-input>  
+					          <el-input size="mini" style="width:140px;" v-model="warnType" placeholder="请输入内容" @focus="warnTypeFocus" @blur="warnTypeBlur"></el-input>
+                    <!-- @blur="warnTypeBlur"   -->
                       <ul class="upText" v-show="upShow">
-                          <li class="Liactive" v-for="(it, index) in warnTypes" :key="index" @mousedown="Liactive">{{it}}</li>
+                          <li class="Liactive" v-for="(it, index) in warnTypes" :key="index" @click="Liactive">{{it}}</li>
                       </ul>
                   
                     <!-- <span>结算日期：</span> -->
@@ -119,8 +120,8 @@ export default {
   },
   methods: {
     Liactive(val) {
-      console.log(val.path[0].innerHTML);
-      this.warnType = val.path[0].innerHTML;
+      // console.log(val.path[0].innerHTML);
+      this.warnType = val.target.childNodes[0].data;
       this.upShow = false;
     },
     //查询警示类型列表
@@ -154,7 +155,10 @@ export default {
         });
     },
     warnTypeBlur() {
-      this.upShow = false;
+       let _this = this;
+       setTimeout(function() {
+          _this.upShow = false;
+       },200);
     },
     //医院编码与医疗机构的选择
     queryHosSearch(queryString, callback) {
@@ -1192,6 +1196,7 @@ export default {
   text-align: left;
   height:100%;
   overflow:scroll;
+  -ms-overflow-style: none;
   /* padding-left: 20px; */
 }
 .right-ctn-title span {
